@@ -5,6 +5,8 @@ import 'package:foodly/constants/constants.dart';
 import 'package:foodly/views/home/allnearby_restaurents.dart';
 import 'package:foodly/views/home/recommendations.dart';
 import 'package:foodly/views/home/widgets/category.dart';
+import 'package:foodly/views/home/widgets/food_list.dart';
+import 'package:foodly/views/home/widgets/nearby_restaurants.dart';
 import 'package:get/get.dart';
 
 
@@ -32,6 +34,7 @@ class HomePage extends StatelessWidget {
               );
             },),
 
+            NearByRestaurentsList(),
 
             HeadingText(text: "Try Something New", onTap: () {
               Get.to( () => AllRecommendations(),
@@ -41,6 +44,7 @@ class HomePage extends StatelessWidget {
               );
             },),
 
+            FoodsList(),
 
             HeadingText(text: "Fastest food closer to you", onTap: () {
               Get.to( () => AllFastestFoods(),
@@ -48,7 +52,9 @@ class HomePage extends StatelessWidget {
                   duration: Duration(microseconds: 900)
 
               );
-            },)
+            },),
+
+            FoodsList(),
           ],
         )))
 
