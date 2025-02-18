@@ -158,7 +158,7 @@ List<dynamic> restaurants = [
   }
 ];
 
-List <Map<String, dynamic>> foods = [
+List < dynamic> foods = [
   {
     "_id": "65316968f94c6496dc84f3c1",
     "title": "Tiramisu",

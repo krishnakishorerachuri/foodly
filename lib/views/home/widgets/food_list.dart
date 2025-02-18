@@ -4,6 +4,7 @@ import 'package:foodly/constants/constants.dart';
 
 import '../../../constants/uidata.dart';
 import '../../categories/category_tile.dart';
+import 'food_widget.dart';
 
 class FoodsList extends StatelessWidget {
   const FoodsList({super.key});
@@ -11,19 +12,12 @@ class FoodsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 210.h,
+        height: 184.h,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: List.generate(foods.length, (i) {
-            var restaurent = foods[i];
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 200.h,
-                width: 159.w,
-                color: kSecondary,
-              ),
-            );
+            var food = foods[i];
+            return FoodWidget(price: food['price'].toStringAsFixed(2), title: food['title'], time: food['time'], image: food['imageUrl'], );
           }),
         ));
   }
