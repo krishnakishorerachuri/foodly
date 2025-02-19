@@ -19,6 +19,7 @@ class FoodsList extends StatelessWidget {
             var food = foods[i];
             return FoodWidget(price: food['price'].toStringAsFixed(2), title: food['title'], time: food['time'], image: food['imageUrl'], );
           }),
-        ));
+        )
+    );
   }
 }
