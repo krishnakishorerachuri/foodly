@@ -14,11 +14,12 @@ class AllNearByRestaurants extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: kOffWhite,
-        title: ReusableText(text: "All Nearby Restaurants", style: appStyle(13, kGray, FontWeight.w600)),
-      ),
+        backgroundColor: kSecondary,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: kSecondary,
+          title: ReusableText(text: "All Nearby Restaurants", style: appStyle(13, kGray, FontWeight.w600)),
+        ),
 
       body: BackGroundContainer(
           child: Padding(
