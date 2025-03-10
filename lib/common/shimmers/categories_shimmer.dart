@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly/common/shimmers/shimmer_widget.dart';
 
-class CatergoriesShimmer extends StatelessWidget {
-  const CatergoriesShimmer({super.key});
+class CategoriesShimmer extends StatelessWidget {
+  const CategoriesShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 import '../constants/constants.dart';
 
-FetchHook useFetchCategories() {
+FetchHook useFetchAllCategories() {
   final categoryItems = useState<List<CategoryModel>?>(null);
   final isLoading = useState<bool>(false);
   final error = useState<Exception?>(null);
@@ -14,11 +14,11 @@ FetchHook useFetchCategories() {
 
   Future<void> fetchData() async {
     isLoading.value = true;
-    Uri url = Uri.parse('$appBaseUrl/api/category/random');
+    Uri url = Uri.parse('$appBaseUrl/api/category');
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
-        print(response.body);
+        print(response.statusCode);
         print(categoryFromJson(response.body));
         categoryItems.value = categoryFromJson(response.body);
       } else {
@@ -37,10 +37,10 @@ FetchHook useFetchCategories() {
   }, []);
 
   void refetch() {
-   isLoading.value = true;
-   fetchData();
+    isLoading.value = true;
+    fetchData();
   }
-  
+
   return FetchHook(
       data: categoryItems.value,
       isLoading: isLoading.value,
