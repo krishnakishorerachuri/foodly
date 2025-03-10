@@ -16,10 +16,10 @@ class CategoryList extends HookWidget {
     List<CategoryModel>? categoryResults = hookResults.data;
     final isLoading = hookResults.isLoading;
     final error = hookResults.error;
-    return Container(
+    return isLoading ? const  CategoriesShimmer() : Container(
       height: 80.h,
       padding: EdgeInsets.only(left: 12.w, top: 10.h),
-      child: isLoading ? const  CategoriesShimmer() : ListView(
+      child:  ListView(
         scrollDirection: Axis.horizontal,
         children: List.generate(categoryResults!.length, (i) {
           CategoryModel category = categoryResults[i];

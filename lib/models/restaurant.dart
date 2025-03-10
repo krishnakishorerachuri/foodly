@@ -4,11 +4,11 @@
 
 import 'dart:convert';
 
-List<Restaurant> restaurantFromJson(String str) => List<Restaurant>.from(json.decode(str).map((x) => Restaurant.fromJson(x)));
+List<RestaurantModel> restaurantFromJson(String str) => List<RestaurantModel>.from(json.decode(str).map((x) => RestaurantModel.fromJson(x)));
 
-String restaurantToJson(List<Restaurant> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String restaurantToJson(List<RestaurantModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Restaurant {
+class RestaurantModel {
   String id;
   String title;
   String time;
@@ -26,7 +26,7 @@ class Restaurant {
   String imageUrl;
   Coords coords;
 
-  Restaurant({
+  RestaurantModel({
     required this.id,
     required this.title,
     required this.time,
@@ -45,7 +45,7 @@ class Restaurant {
     required this.coords,
   });
 
-  factory Restaurant.fromJson(Map<String, dynamic> json) => Restaurant(
+  factory RestaurantModel.fromJson(Map<String, dynamic> json) => RestaurantModel(
     id: json["_id"],
     title: json["title"],
     time: json["time"],

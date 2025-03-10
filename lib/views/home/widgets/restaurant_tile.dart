@@ -5,10 +5,12 @@ import 'package:foodly/common/app_style.dart';
 import 'package:foodly/common/reusable_text.dart';
 import 'package:foodly/constants/constants.dart';
 
+import '../../../models/restaurant.dart';
+
 class RestaurantTile extends StatelessWidget {
   const RestaurantTile({super.key, required this.restaurant});
 
-  final dynamic restaurant;
+  final RestaurantModel restaurant;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,7 +36,7 @@ class RestaurantTile extends StatelessWidget {
                           width: 70.w,
                           height: 70.h,
                           child: Image.network(
-                            restaurant['imageUrl'],
+                            restaurant.imageUrl,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -64,15 +66,15 @@ class RestaurantTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ReusableText(
-                          text: restaurant['title'],
+                          text: restaurant.title,
                           style: appStyle(11, kDark, FontWeight.w400)),
                       ReusableText(
-                          text: "Delivery time : ${restaurant['time']}",
+                          text: "Delivery time : ${restaurant.time}",
                           style: appStyle(11, kGray, FontWeight.w400)),
                       SizedBox(
                         width: width * 0.7,
                         child: Text(
-                          restaurant['coords']['address'],
+                          restaurant.coords.address,
                           style: appStyle(9, kGray, FontWeight.w400),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -91,9 +93,9 @@ class RestaurantTile extends StatelessWidget {
                 height: 19.h,
                 decoration: BoxDecoration(
                  borderRadius:  BorderRadius.circular(10.r),
-                  color: ( restaurant['isAvailable'] == true || restaurant['isAvailable'] == null  )? kPrimary : kSecondaryLight,
+                  color: ( restaurant.isAvailable == true || restaurant.isAvailable == null  )? kPrimary : kSecondaryLight,
                 ),
-                child: Center(child: ReusableText(text: ( restaurant['isAvailable'] == true || restaurant['isAvailable'] == null  ) ? "Open" : "Closed", style: appStyle(12, kLightWhite, FontWeight.w500))),
+                child: Center(child: ReusableText(text: ( restaurant.isAvailable == true || restaurant.isAvailable == null  ) ? "Open" : "Closed", style: appStyle(12, kLightWhite, FontWeight.w500))),
               ))
         ],
       ),
